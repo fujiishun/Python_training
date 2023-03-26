@@ -1,0 +1,8 @@
+{% extends "layout.html" %} {% block content %}
+<h1>送信フォームです。</h1>
+<form action="/postform" method="POST">
+    <input name="data"></input>
+    <button type="submit">送信</button>
+</form>
+<hr />
+{% endblock %}

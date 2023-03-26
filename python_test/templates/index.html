@@ -1,0 +1,25 @@
+{% extends "layout.html" %} {% block content %}
+<h1>templateのindex.html表示してます</h1>
+<hr />
+<br />
+<form id="ul_form">
+  <input type="file" name="img_file" accept="image/*" />
+  <button id="upload_btn" type="button">送信</button>
+</form>
+<p>
+  {%if img_url%}
+  <img id="uld_img" src="{{img_url}}" />
+  {%endif%}
+</p>
+<script>
+  $(function () {
+    $("#upload_btn").on("click", function () {
+      $("#ul_form").attr("target", "_self");
+      $("#ul_form").attr("method", "post");
+      $("#ul_form").attr("action", "{{url_for('upload')}}");
+      $("#ul_form").attr("enctype", "multipart/form-data");
+      $("#ul_form").submit();
+    });
+  });
+</script>
+{% endblock %}
